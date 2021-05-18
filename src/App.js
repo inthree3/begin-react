@@ -1,24 +1,70 @@
-import logo from './logo.svg';
+import React, {useRef, useState } from 'react';
 import './App.css';
+import Counter from './Counter';
+import Error500 from './Error500';
+import CreateUser from './CreateUser';
+import UserList from './UserList';
 
 function App() {
+  const [inputs, setInputs] = useState({
+    username: '',
+    email: ''
+  });
+
+  const { username, email } = inputs;
+  const onChange = e => {
+    const {name, value} = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
+
+  const users = [
+    {
+      id: 1,
+      username: 'velopert',
+      email: 'public.velopert@gmail.com'
+    },
+    {
+      id: 2,
+      username: 'tester',
+      email: 'tester@example.com'
+    },
+    {
+      id: 3,
+      username: 'liz',
+      email: 'liz@example.com'
+    }
+  ];
+
+  const nextId = useRef(4);
+  const onCreate = () => {
+    // 나중에 구현 할 배열에 항목 추가하는 로직
+    // ...
+  
+    setInputs({
+      username: '',
+      email: ''
+    });
+  
+    console.log(nextId)
+    nextId.current += 1;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    /*
+    <>
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList users={users} />
+    </>
+    */
+   <Error500/>
   );
 }
 

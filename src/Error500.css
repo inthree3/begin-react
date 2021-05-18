@@ -1,0 +1,29 @@
+body {
+    background-color: #95c2de;
+}
+
+.mainbox {
+    background-color: #95c2de;
+    margin: auto;
+    height: 600px;
+    width: 600px;
+    position: relative;
+}
+
+
+.msg{
+    display: flex;
+    justify-content: center;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 50px;
+    position: absolute;
+    left: 20%;
+    top: 8%
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
